@@ -1,0 +1,70 @@
+
+<div class="row">
+
+    <!-- begin left box -->
+    <div class="col-md-2 content">
+    
+        <!-- begin quicklink -->
+        <div class="row">
+            <div class="col-md-12 content">
+                <div class="panel panel-default">
+                    <div class="panel-heading background_title">
+                        Listar
+                    </div>
+                    <div class="panel-body">
+                        <a data-ng-href="#listingProduct" class="list-group-item">
+                            <img alt="Details" src="assets/imgs/icons/page_details.png" /> Listar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end quicklink -->
+
+    </div>
+    <!-- end left box -->
+
+    <!-- begin right box -->
+    <div class="col-md-10 content">
+        <div class="panel panel-default">
+            <div class="panel-heading background_title">Cadastro de Pessoas </div>
+            <div class="panel-body">
+                <div class="container-fluid">
+                    <form name="modelForm" role="form">
+                        
+						<div class="row">
+							<div class="form-group col-md-12" ng-class="{ 'has-error': modelForm.nome.$invalid }">
+						   		<label for="campo1">Nome</label>
+						   		<input type="text" class="form-control" placeholder="Nome * " min="1" max="150" name="nome" maxlength="150" ng-model="model.nome" ng-required="true" required>
+						   		<span ng-show="modelForm.nome.$error.required" class="help-block">Nome deve ser preenchido!</span>
+						 	</div>
+						 	
+							<div class="form-group col-md-6" ng-class="{ 'has-error': modelForm.cpf.$invalid }">
+							   <label for="campo2">CPF</label>
+							   <input class="form-control" ng-model="model.cpf" name="cpf" type="text" ui-mask="999.999.999-99" ng-required="true" required> 
+							   <span ng-show="modelForm.cpf.$error.required" class="help-block">CPF deve ser preenchido!</span>
+							</div>
+						    <div class="form-group col-md-6" ng-class="{ 'has-error': modelForm.idade.$invalid }">
+							 	<label for="campo3">Idade</label>
+							 	<input type="text" class="form-control" placeholder="Idade * " name="idade"  maxlength="3" ng-model="model.idade" ng-required="true" apenas-numeros required>
+							 	<span ng-show="modelForm.idade.$error.required" class="help-block">Idade deve ser prenchida!</span>
+							 </div>
+						</div>
+                        
+                         <hr />
+   					     <div id="actions" class="row">
+						 	<div class="col-md-12">
+						    	<button type="submit" ng-click="modificar()" class="btn btn-primary">Alterar</button>
+						      	<a href="#" class="btn btn-default">Cancelar</a>
+						    </div>
+						 </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end right box -->
+
+</div>
+<!-- end body -->

@@ -1,0 +1,51 @@
+<!-- begin body -->
+<div class="row">
+
+    <!-- begin left box -->
+    <div class="col-md-2 content">
+    
+        <!-- begin quicklink -->
+        <div class="row">
+            <div class="col-md-12 content">
+                <div class="panel panel-default">
+                    <div class="panel-heading background_title">
+                        Criar
+                    </div>
+                    <div class="panel-body">
+                        <a data-ng-href="#criar" class="list-group-item">
+                            <img alt="Create" src="assets/imgs/icons/page_add.png"/>
+                            Adicionar uma pessoa
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end quicklink -->
+
+    </div>
+    <!-- end left box -->
+
+    <!-- begin right box -->
+    <div class="col-md-10 content">
+        <div class="panel panel-default">
+            <div class="panel-heading background_title">Lista de Pessoas</span> </div>
+
+            <!-- panel body -->
+            <div class="panel-body">
+                <div class="container-fluid">
+                    <div class="row" style="border: 1px solid #CCCCCC; overflow: hidden">
+                        <div class="barGrid" data-ng-show="barButton">
+                            <span class="barButton" data-ng-click="onEdit()"><i class="fa fa-pencil iconBarButton"></i> Editar </span>
+                            <span class="barButton" data-ng-click="onRemove()"><i class="fa fa-trash iconBarButton"></i> Deletar </span>
+                        </div>
+                        <div class="boxGrid grid" id="grid" data-ui-grid="gridOptions" data-ui-grid-selection data-ui-grid-resize-columns></div>
+                    </div>
+                </div>
+            </div>
+            <!-- panel body -->
+            
+        </div>
+    </div>
+    <!-- end right box -->
+    
+</div>
