@@ -12,7 +12,7 @@
                         Listar
                     </div>
                     <div class="panel-body">
-                        <a data-ng-href="#listingProduct" class="list-group-item">
+                        <a data-ng-href="#listar" class="list-group-item">
                             <img alt="Details" src="assets/imgs/icons/page_details.png" /> Listar
                         </a>
                     </div>
@@ -54,7 +54,7 @@
                          <hr />
    					     <div id="actions" class="row">
 						 	<div class="col-md-12">
-						    	<button type="submit" ng-click="modificar()" class="btn btn-primary">Alterar</button>
+						    	<button type="submit" ng-disabled="modelForm.$invalid" ng-click="modificar()" class="btn btn-primary">Alterar</button>
 						      	<a href="#" class="btn btn-default">Cancelar</a>
 						    </div>
 						 </div>

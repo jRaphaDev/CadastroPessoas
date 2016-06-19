@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Pessoa implements Serializable {
@@ -15,8 +18,12 @@ public class Pessoa implements Serializable {
 	@GeneratedValue
 	private String id;
 	
+	@NotNull(message="O Nome deve ser preenchido")
+	@NotBlank(message="O Nome deve ser preenchido")
 	private String nome;
 	
+	@NotNull(message="O cpf deve ser preenchido")
+	@NotBlank(message="O cpf deve ser preenchido")
 	private String cpf;
 	
 	private int idade;
