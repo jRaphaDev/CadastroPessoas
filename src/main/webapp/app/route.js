@@ -3,19 +3,24 @@ var app = angular.module('app', ['ngRoute', 'ngCpfCnpj', 'ui.mask', 'ui.grid', '
 	app.config(function($routeProvider, $locationProvider) {
  
 		$routeProvider
+		//rota para listagem.
 		.when('/listar', {
 			templateUrl : 'app/pessoa/listar.html',
 			controller     : 'listarController',
+		//rota para criação.
 		}).when('/criar', {
 			templateUrl : 'app/pessoa/criar.html',
 			controller  : 'criarController',
+		//rota para edição.
 		}).when('/editar/:id', {
 			templateUrl : 'app/pessoa/editar.html',
 			controller  : 'editarController',
+		//caso rota seja desconhecida ele redireciona para a listagem.
 		}).otherwise ({ redirectTo: '/listar' });
 		
 	});
 
+	//filtro para mascara de cpf.
     app.filter('cpf', function () {
     	return function (input) {
     		var str = input + '';
@@ -27,6 +32,7 @@ var app = angular.module('app', ['ngRoute', 'ngCpfCnpj', 'ui.mask', 'ui.grid', '
     	};
 	});
     
+    //diretiva responsavel em apenas deixar numeros serem inseridos no campo.
     app.directive('apenasNumeros', function(){
     	return {
     		require: 'ngModel',

@@ -27,6 +27,12 @@ public class PessoaService {
  
 	ConnectionFactory connectionFactory = new ConnectionFactory();
 	
+	/**
+	 * Serviço responsael para inserir uma pessoa.
+	 * @param pessoa entidade que sera inserida
+	 * @return 201 created, ou 500 internal server error.
+	 * @throws Exception
+	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response create(@Context UriInfo uriInfo, Pessoa pessoa) throws Exception {
@@ -40,6 +46,11 @@ public class PessoaService {
 		}
 	}
 	
+	/**
+	 * Serviço responsável em buscar uma determinada pessoa
+	 * @param id da pessoa que deseja proucurar
+	 * @return 200 com a listagem de pessoas, 404 se a pessoa não for encontrada ou 500 internal server error
+	 */
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -47,12 +58,17 @@ public class PessoaService {
 		try {
 			PessoaRepository pessoaRepository = new PessoaRepository(connectionFactory.getConnection());
 			Pessoa pessoa = pessoaRepository.proucurar(id);
-			return Response.status(200).entity(pessoa).build();
+			return Response.ok().entity(pessoa).build();
 		} catch (Exception e) {
 			return new FailureResponseBuilder().toResponse(e);
 		}
 	}
 	
+	/**
+	 * Serviço responsável em listar todas as pessoas
+	 * @return 200 com a listagem de pessoas ou 500 internal server error
+	 * @throws Exception
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response listar() throws Exception {
@@ -65,6 +81,13 @@ public class PessoaService {
 		}
 	}
 
+	/**
+	 * Serviço responsável em modificar uma pessoa
+	 * @param id da pessoa que ser modificada
+	 * @param pessoa entidade modificada
+	 * @return 204, 404 se a entidade não for encontrada ou 500 internet server error
+	 * @throws Exception
+	 */
 	@PUT
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -78,6 +101,12 @@ public class PessoaService {
 		}
 	}
 
+	/**
+	 * Serviço responsável em deletar uma pessoa
+	 * @param id da pessoa que ser excluida
+	 * @return 204, 404 se a entidade não for encontrada ou 500 internet server error
+	 * @throws Exception
+	 */
 	@DELETE
 	@Path("/{id}")
 	public Response deletar(@PathParam("id") String id) throws Exception {

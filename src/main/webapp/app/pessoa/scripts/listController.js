@@ -35,19 +35,19 @@ app.controller('listarController', ['$scope', '$filter', 'pessoaFactory', functi
          $scope.gridOptions.enableRowSelection = !$scope.gridOptions.enableRowSelection;
     };
 
-    //Edit a specific product
+    //Editar uma pessoa especifica
     $scope.onEdit = function() {
         var list = $scope.gridApi.selection.getSelectedGridRows();
         location.href = '#editar/'+list[0].entity.id;
     }
 
-    //Get id to delete a specific product 
+    //Pegar o id da pessoa que será excluida
     $scope.onRemove = function() {
         var list = $scope.gridApi.selection.getSelectedGridRows();
         $scope.remove(list[0].entity.id);
     }
     
-  //Delete a specific product 
+    //Deleta uma pessoa especifica
     $scope.remove = function(id) {
     	pessoaFactory.deletar(id).then(function (a) {
 			$scope.loadPessoas();
@@ -56,6 +56,7 @@ app.controller('listarController', ['$scope', '$filter', 'pessoaFactory', functi
 	    });
     }
     
+    //carrega todas as pessoas.
     $scope.loadPessoas = function() {
     	$scope.barButton = false;
     	pessoaFactory.listar().then(function (data) {
